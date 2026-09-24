@@ -16,7 +16,7 @@ class AttendanceService:
             WHERE roll_no = %s AND UPPER(class_name) = %s
             ORDER BY date DESC
         """
-        records = db_service.execute_query(query, (roll_no, class_name))
+        records = db_service.execute_query(query, (roll_no, class_name), fetchall=True)
         
         results = []
         for r in records:
