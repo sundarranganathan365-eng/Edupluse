@@ -39,6 +39,22 @@ def startup_event():
         from services.db_service import db_service
         db_service.init_db()
         logger.info("Database initialized successfully on startup.")
+
+        # Auto-seed if the database is empty (e.g. after Render restart wipes ephemeral disk)
+        result = db_service.execute_query("SELECT COUNT(*) as total FROM students", fetchone=True)
+        student_count = result["total"] if result else 0
+
+        if student_count == 0:
+            logger.info("Database is empty — seeding with sample data...")
+            try:
+                from execution.seed_data import seed_data
+                seed_data()
+                logger.info("✅ Auto-seeding complete.")
+            except Exception as seed_err:
+                logger.error(f"Auto-seeding failed: {seed_err}")
+        else:
+            logger.info(f"Database already has {student_count} students — skipping seed.")
+
     except Exception as e:
         logger.warning(f"Database initialization deferred or failed on startup: {e}")
 
