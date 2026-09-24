@@ -2,7 +2,7 @@ services:
   - type: web
     name: whatsapp-report-bot
     runtime: python
-    buildCommand: pip install -r requirements.txt && cd frontend && npm install && npm run build && cd ..
+    buildCommand: pip install -r requirements.txt && python execution/seed_data.py && cd frontend && npm install && npm run build && cd ..
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: MYSQL_HOST

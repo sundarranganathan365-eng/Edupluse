@@ -19,9 +19,9 @@ def seed_data():
     db_service.init_db()
 
     print("--- Clearing existing data ---")
-    db_service.execute_query("TRUNCATE TABLE exams")
-    db_service.execute_query("TRUNCATE TABLE tests")
-    db_service.execute_query("TRUNCATE TABLE attendance")
+    db_service.execute_query("DELETE FROM exams")
+    db_service.execute_query("DELETE FROM tests")
+    db_service.execute_query("DELETE FROM attendance")
     db_service.execute_query("DELETE FROM students")
 
     # Generate 150 Students (Roll 1-50 for EACH class 8, 9, 10)
