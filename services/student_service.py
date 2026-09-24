@@ -10,17 +10,17 @@ class StudentService:
                 SELECT roll_no, name, class_name 
                 FROM students 
                 WHERE LOWER(name) LIKE %s OR LOWER(roll_no) LIKE %s
-                ORDER BY class_name, CAST(roll_no AS UNSIGNED), roll_no
+                ORDER BY class_name, CAST(roll_no AS INTEGER), roll_no
             """
             pattern = f"%{str(search_query).lower()}%"
-            records = db_service.execute_query(query, (pattern, pattern))
+            records = db_service.execute_query(query, (pattern, pattern), fetchall=True)
         else:
             query = """
                 SELECT roll_no, name, class_name 
                 FROM students 
-                ORDER BY class_name, CAST(roll_no AS UNSIGNED), roll_no
+                ORDER BY class_name, CAST(roll_no AS INTEGER), roll_no
             """
-            records = db_service.execute_query(query)
+            records = db_service.execute_query(query, fetchall=True)
 
         normalized_records = []
         for s in records:
