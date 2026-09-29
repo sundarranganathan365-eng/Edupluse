@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from './assets/logo.png';
 import { BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { LayoutDashboard, Users, CalendarCheck, BookOpen, FileText, LogOut } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
@@ -11,7 +12,9 @@ import LoginPage from './pages/LoginPage';
 const Sidebar = ({ onLogout }) => {
   return (
     <div className="sidebar">
-      <h2>Admin Portal</h2>
+      <div className="brand-header">
+        <img src={logo} alt="EduPluse Logo" className="brand-logo" />
+      </div>
       <div className="nav-links">
         <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <LayoutDashboard size={20} /> Dashboard

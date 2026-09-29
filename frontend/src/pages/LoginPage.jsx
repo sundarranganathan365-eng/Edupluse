@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock, User } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -30,7 +31,7 @@ const LoginPage = ({ onLogin }) => {
     <div className="login-wrapper">
       <div className="login-glass-card">
         <div className="login-header">
-          <h1>Admin Portal</h1>
+          <img src={logo} alt="EduPluse Logo" className="login-logo" />
           <p>Sign in to manage the bot backend</p>
         </div>
         
