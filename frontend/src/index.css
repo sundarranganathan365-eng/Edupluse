@@ -298,9 +298,9 @@ tr:hover td {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 420px;
-  padding: 48px 40px;
-  background: rgba(255, 255, 255, 0.7);
+  max-width: 400px;
+  padding: 40px 36px;
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: var(--radius-lg);
@@ -310,22 +310,23 @@ tr:hover td {
 
 .login-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .login-logo {
   display: block;
-  max-width: 260px;
+  max-width: 200px;
   height: auto;
   object-fit: contain;
-  margin: 0 auto 24px auto;
+  margin: 0 auto 12px auto;
 }
 
 .welcome-text {
-  color: var(--on-surface-variant);
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 0;
+  color: var(--on-surface);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
 .login-form {
