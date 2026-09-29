@@ -45,7 +45,7 @@ const LoginPage = ({ onLogin }) => {
                 type="text" 
                 value={username} 
                 onChange={(e) => setUsername(e.target.value)} 
-                placeholder="Enter username (admin)"
+                placeholder="Enter username"
                 required 
               />
             </div>
@@ -59,7 +59,7 @@ const LoginPage = ({ onLogin }) => {
                 type="password" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
-                placeholder="Enter password (admin123)"
+                placeholder="Enter password"
                 required 
               />
             </div>
