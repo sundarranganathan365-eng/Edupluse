@@ -315,10 +315,10 @@ tr:hover td {
 
 .login-logo {
   display: block;
-  max-width: 200px;
+  max-width: 240px;
   height: auto;
   object-fit: contain;
-  margin: 0 auto 12px auto;
+  margin: 0 auto 6px auto;
 }
 
 .welcome-text {
