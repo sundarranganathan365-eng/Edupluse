@@ -32,7 +32,7 @@ const LoginPage = ({ onLogin }) => {
       <div className="login-glass-card">
         <div className="login-header">
           <img src={logo} alt="EduPluse Logo" className="login-logo" />
-          <p>Sign in to manage the bot backend</p>
+          <h2 className="welcome-text">Welcome to Admin Dashboard</h2>
         </div>
         
         <form onSubmit={handleLogin} className="login-form">

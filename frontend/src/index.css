@@ -314,15 +314,18 @@ tr:hover td {
 }
 
 .login-logo {
-  max-width: 220px;
+  display: block;
+  max-width: 260px;
   height: auto;
   object-fit: contain;
-  margin-bottom: 16px;
+  margin: 0 auto 24px auto;
 }
 
-.login-header p {
+.welcome-text {
   color: var(--on-surface-variant);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0;
 }
 
 .login-form {
