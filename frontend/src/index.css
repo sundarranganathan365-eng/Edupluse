@@ -275,3 +275,122 @@ tr:hover td {
   background: var(--surface-container-highest);
   border-radius: 4px;
 }
+
+/* Login Page Styles */
+.login-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  overflow: hidden;
+}
+
+.login-glass-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(45, 51, 53, 0.1);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.login-header p {
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--on-surface-variant);
+  opacity: 0.7;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding-left: 44px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.input-with-icon input:focus {
+  background: #ffffff;
+}
+
+.login-btn {
+  margin-top: 12px;
+  height: 48px;
+  font-size: 1rem;
+}
+
+/* Decorative Background */
+.bg-circle-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: 0.15;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 10s ease-in-out infinite;
+}
+
+.bg-circle-2 {
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  opacity: 0.15;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 12s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(20px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
