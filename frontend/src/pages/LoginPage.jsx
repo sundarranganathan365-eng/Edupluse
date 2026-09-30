@@ -19,7 +19,7 @@ const LoginPage = ({ onLogin }) => {
     setTimeout(() => {
       if (username === 'admin' && password === 'admin123') {
         onLogin();
-        navigate('/');
+        navigate('/admin');
       } else {
         setError('Invalid username or password');
         setIsLoading(false);
