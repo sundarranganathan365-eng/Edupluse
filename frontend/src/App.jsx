@@ -80,9 +80,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
 
         {/* Login page */}
-        <Route path="/login" element={
-          isAuthenticated ? <Navigate to="/admin" replace /> : <LoginPage onLogin={handleLogin} />
-        } />
+        <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
 
         {/* Protected admin routes */}
         <Route path="/admin/*" element={
