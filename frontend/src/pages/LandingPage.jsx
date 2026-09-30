@@ -208,7 +208,7 @@ const About = () => (
           </div>
           <div className="lp-about-card__meta">
             <span>Academic Year</span>
-            <strong>2024 – 25</strong>
+            <strong>2025 – 2026</strong>
           </div>
         </div>
       </div>
@@ -223,7 +223,6 @@ const stack = [
   { name: 'MySQL', role: 'Database' },
   { name: 'Twilio WhatsApp API', role: 'Messaging Layer' },
   { name: 'Render', role: 'Cloud Deployment' },
-  { name: 'Google Sheets API', role: 'Data Sync' },
 ];
 
 const TechStack = () => (
@@ -245,14 +244,34 @@ const TechStack = () => (
 const Contact = () => (
   <section id="contact" className="lp-section">
     <div className="lp-section__label">Get In Touch</div>
-    <h2 className="lp-section__title">Contact</h2>
-    <div className="lp-contact-card">
-      <Mail size={32} className="lp-contact-card__icon" />
-      <div>
-        <h3>Sundarraj Ranganathan Konar</h3>
-        <p>Kamaladevi College of Arts, Commerce & Science</p>
-        <p className="lp-contact-card__email">sundarranganathan365@gmail.com</p>
+    <h2 className="lp-section__title">Contact & Repository</h2>
+    <div className="lp-contact-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+      <div className="lp-contact-card">
+        <Mail size={32} className="lp-contact-card__icon" />
+        <div>
+          <h3>Sundarraj Ranganathan Konar</h3>
+          <p>Kamaladevi College of Arts, Commerce & Science</p>
+          <p className="lp-contact-card__email">sundarranganathan365@gmail.com</p>
+        </div>
       </div>
+
+      <a 
+        href="https://github.com/sundarranganathan365-eng/Edupluse" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="lp-contact-card"
+        style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+      >
+        <svg size={32} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lp-contact-card__icon" style={{ color: 'var(--primary, #3b82f6)' }}>
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+          <path d="M9 18c-4.51 2-5-2-7-2" />
+        </svg>
+        <div>
+          <h3>GitHub Repository</h3>
+          <p>View source code & project docs</p>
+          <p className="lp-contact-card__email" style={{ color: 'var(--primary, #3b82f6)', fontWeight: 600 }}>github.com/sundarranganathan365-eng/Edupluse ↗</p>
+        </div>
+      </a>
     </div>
   </section>
 );
@@ -261,7 +280,7 @@ const Contact = () => (
 const Footer = () => (
   <footer className="lp-footer">
     <img src={logo} alt="EduPluse" className="lp-footer__logo" />
-    <p>Built with purpose · Kamaladevi College of Arts, Commerce & Science · 2024–25</p>
+    <p>Built with purpose · Kamaladevi College of Arts, Commerce & Science · 2025–2026</p>
     <p className="lp-footer__copy">© {new Date().getFullYear()} EduPluse. All rights reserved.</p>
   </footer>
 );
