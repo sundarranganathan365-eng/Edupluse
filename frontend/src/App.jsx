@@ -8,6 +8,7 @@ import AttendanceModule from './pages/AttendanceModule';
 import MarksModule from './pages/MarksModule';
 import ReportPreview from './pages/ReportPreview';
 import LoginPage from './pages/LoginPage';
+import LandingPage from './pages/LandingPage';
 
 const Sidebar = ({ onLogout }) => {
   return (
@@ -16,19 +17,19 @@ const Sidebar = ({ onLogout }) => {
         <img src={logo} alt="EduPluse Logo" className="brand-logo" />
       </div>
       <div className="nav-links">
-        <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/admin" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <LayoutDashboard size={20} /> Dashboard
         </NavLink>
-        <NavLink to="/students" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/admin/students" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <Users size={20} /> Students
         </NavLink>
-        <NavLink to="/attendance" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/admin/attendance" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <CalendarCheck size={20} /> Attendance
         </NavLink>
-        <NavLink to="/marks" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/admin/marks" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <BookOpen size={20} /> Tests & Exams
         </NavLink>
-        <NavLink to="/reports" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/admin/reports" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <FileText size={20} /> Report Preview
         </NavLink>
       </div>
@@ -58,7 +59,6 @@ const Layout = ({ children, onLogout }) => {
 };
 
 function App() {
-  // Simple mock auth state (persisted to localStorage)
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('adminAuth') === 'true';
   });
@@ -75,25 +75,38 @@ function App() {
 
   return (
     <BrowserRouter>
-      {!isAuthenticated ? (
-        <Routes>
-          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      ) : (
-        <Layout onLogout={handleLogout}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/students" element={<StudentsModule />} />
-            <Route path="/attendance" element={<AttendanceModule />} />
-            <Route path="/marks" element={<MarksModule />} />
-            <Route path="/reports" element={<ReportPreview />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Layout>
-      )}
+      <Routes>
+        {/* Public landing page */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Login page */}
+        <Route path="/login" element={
+          isAuthenticated ? <Navigate to="/admin" replace /> : <LoginPage onLogin={handleLogin} />
+        } />
+
+        {/* Protected admin routes */}
+        <Route path="/admin/*" element={
+          isAuthenticated ? (
+            <Layout onLogout={handleLogout}>
+              <Routes>
+                <Route index element={<Dashboard />} />
+                <Route path="students" element={<StudentsModule />} />
+                <Route path="attendance" element={<AttendanceModule />} />
+                <Route path="marks" element={<MarksModule />} />
+                <Route path="reports" element={<ReportPreview />} />
+                <Route path="*" element={<Navigate to="/admin" replace />} />
+              </Routes>
+            </Layout>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        } />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
