@@ -3,7 +3,7 @@ import os
 import random
 from datetime import datetime, timedelta
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "."))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from services.db_service import db_service
 
 def repopulate():

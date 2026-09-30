@@ -1,18 +1,36 @@
-# Ignore temporary processing files
-.tmp/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*$py.class
 
-# Ignore environment variables and API keys
+# Environment and Credentials
 .env
 .env.local
-
-# Ignore Google OAuth credentials (required by Agent.md)
 credentials.json
 token.json
-.env
-credentials.json
-.tmp
-__pycache__
-.env
-credentials.json
-.tmp
-__pycache__
+
+# Temporary files & logs
+.tmp/
+*.log
+
+# OS & Editor generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+
+# Testing framework output
+testsprite_tests/
+frontend/testsprite_tests/
+
+# Node dependencies & builds
+node_modules/
+dist/
+build/
+frontend/node_modules/
+frontend/dist/
